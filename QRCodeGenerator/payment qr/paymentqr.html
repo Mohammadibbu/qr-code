@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport"
+		content="width=device-width,
+						initial-scale=1.0" />
+	<title>QR Code Generator</title>
+	<style>
+		h1, h3 {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		color: green;
+		}
+		center {
+		display: grid;
+		justify-content: center;
+		align-items: center;
+		}
+	</style>
+
+</head>
+
+<body onautocomplete="on">
+	<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!-- jquery -->
+<!-- create qr code script here.... -->
+	<script src="../source/create-qr-script.js"></script>
+	<header>
+		<h1>PAYMENT qr </h1>
+	</header>
+	<center >
+		<span id="error" style="color: darkred;"></span>
+			<label for="upiid">UPI ID</label><input type="text" id="upiid" placeholder="Enter UPI ID" minlength="5" oninput="invalid()" /><br>
+			<label for="upi_name">UPI NAME</label><input type="text" maxlength="30" id="upi_name"  placeholder="Enter UPI name" oninput="invalid()" /><br>
+			<label for="upi_mess">MESSAGE</label><input type="text" maxlength="40" id="upi_mess"  placeholder="Enter message"  oninput="invalid()" /><br>
+			<label for="amount">AMOUNT</label>
+			<input type="number" maxlength="5" id="amount" placeholder="Enter amount" oninput="invalid()"/><br>
+			<!-- <input type="color" id="color" value="green"> -->
+			<br>
+			<input type="button" id="generatebtn" 
+				value="Generate QR Code"  />
+		<br>
+		<br><br><br>
+		<fieldset id="qr-code" style="display: none;"></fieldset>
+
+	</center>
+	<button onclick="history.back()">Back</button>
+
+<script>
+
+	let upiid = document.getElementById("upiid");
+	let color = document.getElementById("color");
+	let upiname=document.getElementById("upi_name");
+	let upimess=document.getElementById("upi_mess");
+	let amt=document.getElementById("amount");
+	
+   let err=document.getElementById("error");
+
+	let qrGenerationForm=document.getElementById("generatebtn");
+	let qrCode;
+	
+	// console.log(upiid.value,upimess.value.value.value.value.value,upiname.value.value,amt.value)
+	
+	function generateQrCode(qrContent) {
+	return new QRCode("qr-code", {
+		text: qrContent,
+		width: 200,
+		height: 200,
+		colorDark: "#000000",
+		colorLight: "#ffffff",
+		
+	});
+	}
+	$('#generatebtn').attr('disabled','disabled');
+	function invalid(){
+      if (upiid.value.length>=5) {
+			$('#generatebtn').removeAttr('disabled');
+		}
+      else{
+			document.getElementById('qr-code').style.display="none";
+			$('#generatebtn').attr('disabled','disabled');
+    }};
+
+	
+	// Event listener for form submit event
+	qrGenerationForm.addEventListener("click", function (event) {
+		document.getElementById('qr-code').style.display="block";
+		console.log(upiid.value,upimess.value,upiname.value,amt.value)
+     let qrContentInput=`upi://pay?pa=${upiid.value}&pn=${upiname.value}&tn=${upimess.value}&am=${amt.value}&cu=INR`;
+	
+
+	let qrContent = qrContentInput;
+	console.log(qrContent)
+	if (qrCode == null) {
+// 		let a=document.getElementById('qr-code').innerHTML=`<a href='in.jpeg' downlaod>link here</a>`;
+// console.log(a);
+
+		// Generate code initially
+		qrCode = generateQrCode(qrContent);
+	} else {
+		
+		// If code already generated then make
+		// again using same object
+		
+		qrCode.makeCode(qrContent);
+	}
+	});
+</script>
+</body>
+</html>
