@@ -1,0 +1,25 @@
+body{
+margin: 0;
+		background-image: linear-gradient(to right bottom, #051937, #252b4a, #413e5e, #5c5372, #786987);
+		background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+.headerpage {
+	  display: flex;
+	  justify-content: right;
+	  align-items: right;
+	  column-gap: 2rem;
+	  background: lightgray;
+	  padding: .5rem;
+	 }
+	 .headerpage:hover{
+      
+	 }
+	 a{
+	 	text-transform: uppercase;
+	 	color: green;
+    text-decoration: none;
+	 }a:hover{
+       color: rebeccapurple;font-weight: bolder;
+	 }
