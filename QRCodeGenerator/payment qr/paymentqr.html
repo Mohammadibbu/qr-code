@@ -3,9 +3,7 @@
 
 <head>
 	<meta charset="UTF-8" />
-	<meta name="viewport"
-		content="width=device-width,
-						initial-scale=1.0" />
+	<meta name="viewport" content="width=970, user-scalable=no">
 	<title>QR Code Generator</title>
 	<style>
 		h1, h3 {
@@ -20,7 +18,7 @@
 		align-items: center;
 		}
 	</style>
-
+<link rel="stylesheet" type="text/css" href="../source/nav.css">
 </head>
 
 <body onautocomplete="on">
@@ -29,6 +27,13 @@
 <!-- jquery -->
 <!-- create qr code script here.... -->
 	<script src="../source/create-qr-script.js"></script>
+	<!-- nav bar -->
+<div class="headerpage">
+	<a href="/index.html">HOME</a>
+	<a href="https://www.qr-code-generator.com/#:~:text=What%20is%20a%20QR%20Code%20generator%3F,WiFi%20network%2C%20and%20much%20more." target="_blank" >About</a>
+	<a href="#">Feedback</a>
+</div>
+<!-- nav bar ending.... -->
 	<header>
 		<h1>PAYMENT qr </h1>
 	</header>
@@ -46,9 +51,9 @@
 		<br>
 		<br><br><br>
 		<fieldset id="qr-code" style="display: none;"></fieldset>
-
+<button onclick="history.back()">Back</button>
 	</center>
-	<button onclick="history.back()">Back</button>
+	
 
 <script>
 
