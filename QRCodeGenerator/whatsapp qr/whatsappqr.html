@@ -2,40 +2,93 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=970, user-scalable=no">
+
 	<title>qr generator</title>
 	<style>
-		h1, h3 {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		color: green;
+		body{
+		margin: 0;
+		background-image: linear-gradient(to right bottom, #051937, #252b4a, #413e5e, #5c5372, #786987);
+		background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+	
 		}
-		center {
+		
+		
+		#generatebtn,button{
+			cursor: pointer;
+			background: linear-gradient(to left,red,darkblue );
+			color: #fff;
+			padding: 10px;
+			font-weight: bolder;
+			
+		}
+		.whatsappcontent label,input,textarea{
+			border-radius: 10px;
+			border: none;
+			outline: none;
+			font-size: 20px;
+			padding: 6px;
+			margin: 0;
+
+
+		}
+/*	remove number spinner	*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+		::placeholder{
+			color: palevioletred;
+			text-align: center;
+		}
+		.whatsappcontent {
+			margin: 150px;
+			background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
 		display: grid;
+		padding:0 40px 50px;
+		border-radius: 20px;
 		justify-content: center;
 		align-items: center;
+		width: 300px;
 		}
 	</style>
+	<link rel="stylesheet" type="text/css" href="/source/nav.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 	<!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!-- jquery -->
 <!-- create qr code script here.... -->
-	<script src="../source/create-qr-script.js"></script>
+	<script src="/source/create-qr-script.js"></script>
+	<!-- nav bar -->
+<div class="headerpage">
+	<a href="../index.html">HOME</a>
+	<a href="https://www.qr-code-generator.com/#:~:text=What%20is%20a%20QR%20Code%20generator%3F,WiFi%20network%2C%20and%20much%20more." target="_blank" >About</a>
+	<a href="#">Feedback</a>
+</div>
+<!-- nav bar ending.... -->
 	<center>
-<h1>whats app qr code generator</h1>
-MOBILE NO.<input type="number" oninput="invalid()" name="phno" id="phno" placeholder="enter mobile no" ><br><br>
-MESSAGE(OPTIONAL)<textarea id="message" placeholder="Type message here...(optional)" cols="5" rows="4"></textarea><br>
+<div class="whatsappcontent">
+<h1 style="color:blueviolet;">whats app qr code generator</h1>
+<label for="phno"> MOBILE NO.</label><input type="number" oninput="invalid()" name="phno" id="phno" placeholder="Enter mobile no" >
+<span id="error" style="font-weight: bolder;font-size: 20px;"></span><br>
+<label for="message">MESSAGE(OPTIONAL)</label><textarea id="message" placeholder="Type message here...(optional)" cols="5" rows="3"></textarea><br>
 <br>
 	<input type="button" id="generatebtn" 
-				value="Generate QR Code"  />
+				value="Generate QR Code" />
 		<br>
-		<br><br><br>
-		<fieldset id="qr-code" style="display: none;"></fieldset>
+		<br>
+		<div>
+		<fieldset id="qr-code" style="display:none;" ></fieldset>
+		<button id="dwnld" onclick="alert('sorry :( work not yet completed...')" style="display:none;">Download QR</button>
+	</div>
 <hr>
 <button onclick="history.back()">Back</button>
+</div>
 </center>
 
 <script>
@@ -57,10 +110,31 @@ MESSAGE(OPTIONAL)<textarea id="message" placeholder="Type message here...(option
 	$('#generatebtn').attr('disabled','disabled');
 	function invalid(){
       if (phno.value.length === 10) {
+      	 document.getElementById("error").innerHTML="<b style='color: green;' class='fa fa-check-circle'> Valid Number</b";
+
+      	phno.style.border="2px solid green";
+      	message.style.border="2px solid green";
+      	qrGenerationForm.style.cursor="pointer";
+			qrGenerationForm.style.background="green";
+			
 			$('#generatebtn').removeAttr('disabled');
+		}else if (phno.value==="") {
+      	document.getElementById("error").innerHTML="<b style='color: red;' class='fa fa-exclamation-circle'> Required Field</b";
+      	phno.style.border="1px solid red";
+     
 		}
       else{
+
+     document.getElementById("error").innerHTML="<b style='color: red;' class='fa fa-exclamation-circle'> invalid Number</b";
+
 			document.getElementById('qr-code').style.display="none";
+			qrGenerationForm.style.cursor="not-allowed";
+			qrGenerationForm.style.background="red";
+      	phno.style.border="2px solid red";
+      	message.style.border="none";
+
+        document.getElementById('dwnld').style.display="none";
+			
 			$('#generatebtn').attr('disabled','disabled');
     }};
 
@@ -68,6 +142,7 @@ MESSAGE(OPTIONAL)<textarea id="message" placeholder="Type message here...(option
 	// Event listener for form submit event
 	qrGenerationForm.addEventListener("click", function (event) {
 		document.getElementById('qr-code').style.display="block";
+		document.getElementById('dwnld').style.display="block";
 	 let mess=message.value;
 		let crtmess=mess.replaceAll(' ','%20');
 
