@@ -2,19 +2,26 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=970, user-scalable=no">
 	<title>QR_code generator</title>
+	<link rel="stylesheet" type="text/css" href="source/nav.css">
 	<style type="text/css">
-		*{
-			background: lightgray;
+
+		body{
+		margin: 0;
+		background-image: linear-gradient(to right bottom, #051937, #252b4a, #413e5e, #5c5372, #786987);
+		background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+	
 		}
-		select{
+select{
 			padding: 15px;
     border: 1px solid red;
-    background-color: #ead5ab;
+    background-color: goldenrod;
 
     font-weight: bolder;
-    font-size: 90%;
+    font-size: 21px;
     -webkit-appearance: none;
     cursor: pointer;
     text-align: center;
@@ -26,9 +33,14 @@ select:hover{
 	</style>
 </head>
 <body>
+	<div class="headerpage">
+	<a href="/index.html">HOME</a>
+	<a href="https://www.qr-code-generator.com/#:~:text=What%20is%20a%20QR%20Code%20generator%3F,WiFi%20network%2C%20and%20much%20more." target="_blank" >About</a>
+	<a href="#" onclick="alert('opening gmail')";>Feedback</a>
+</div>
 	<center>
 		<div>
-	<h1>QR _ CODE GENERATORS</h1>
+	<h1 style="color: wheat;">QR _ CODE GENERATORS</h1>
 	<select id="qr_selector" onchange="qrselect()">
 		<option disabled selected>--SELECT QR CODE --</option>
 		<option value="whatsapp">WHATS APP MESSAGE QR GENARATOR</option>
