@@ -2,16 +2,61 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=970, user-scalable=no">
+
 	<title>QR GENERATOR</title>
+	<link rel="stylesheet" type="text/css" href="source/nav.css">
+<style type="text/css">
+	body{
+		
+	}
+	.button{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+		margin: 6rem;
+		border-radius: 50px;
+		width: 400px;
+		 box-shadow: 6px 3px red;
+
+	}
+	button{
+		font-size: 30px;
+		font-weight: bolder;
+		color: rebeccapurple;
+	   width: 17rem;
+	   background: lightgray;
+	   border: none;
+		border-radius: 50px;
+		padding: 15px;
+		margin: 30px;
+
+
+	}
+	button:hover{
+		color: green;
+		border: 1px dimgray solid ;
+		cursor: pointer;
+
+	}
 	
+	 
+</style>
 </head>
 <body>
+	<div class="headerpage">
+	<a href="#" onclick="alert('you are in home page now..');">HOME</a>
+	<a href="https://www.qr-code-generator.com/#:~:text=What%20is%20a%20QR%20Code%20generator%3F,WiFi%20network%2C%20and%20much%20more." target="_blank" >About</a>
+	<a href="#" onclick="alert('opening gmail');">Feedback</a>
+</div>
    <center>
-   	 <button  onclick="window.location.href = 'https://search.app.goo.gl/?ofl=https%3A%2F%2Flens.google&al=googleapp%3A%2F%2Flens%3Flens_data%3DKAw&apn=com.google.android.googlequicksearchbox&amv=301204913&isi=284815942&ius=googleapp&ibi=com.google.GoogleMobile&link=https%3A%2F%2Fgoo.gl%2Fiosgoogleapp%2Fdefault%3Furl%3Dgoogleapp%253A%252F%252Flens%253Fmin-version%253D180%2526lens_data%253DKAw&ifl=https%3A%2F%2Fapps.apple.com%2Fus%2Fapp%2Fgoogle%2Fid284815942%3Fppid%3D1ac8cc35-d99c-4a1d-b909-321c8968cc74%26pt%3D9008%26mt%3D8%26ct%3D4815459-oo-lens-isb-bar-lens-cam%26UTM_campaign%3Dgoogle_search_mweb&efr=1&ct=4815459-oo-lens-isb-bar-l';">
+   	<div class="button">
+   	 <button  onclick="window.location.href = 'https://search.app.goo.gl/?ofl=https%3A%2F%2Flens.google&al=googleapp%3A%2F%2Flens%3Flens_data%3DKAw&apn=com.google.android.googlequicksearchbox&amv=301204913&isi=284815942&ius=googleapp&ibi=com.google.GoogleMobile&link=https%3A%2F%2Fgoo.gl%2Fiosgoogleapp%2Fdefault%3Furl%3Dgoogleapp%253A%252F%252Flens%253Fmin-version%253D180%2526lens_data%253DKAw&ifl=https%3A%2F%2Fapps.apple.com%2Fus%2Fapp%2Fgoogle%2Fid284815942%3Fppid%3D1ac8cc35-d99c-4a1d-b909-321c8968cc74%26pt%3D9008%26mt%3D8%26ct%3D4815459-oo-lens-isb-bar-lens-cam%26UTM_campaign%3Dgoogle_search_mweb&efr=1&ct=4815459-oo-lens-isb-bar-l';" >
         SCAN CODE
     </button>
-   	<button onclick="window.location.href = 'QRCodeGenerator/indexqr.html';">Create QR </button>
+   	<button onclick="window.location.href = 'indexqr.html';">Create QR </button>
+   </div>
    </center>
 </body>
 </html>
