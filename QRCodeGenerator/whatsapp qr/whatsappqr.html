@@ -5,6 +5,8 @@
 	<meta name="viewport" content="width=670, user-scalable=no">
    
 	<title>qr generator</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<style>
 		/*body{
 		margin: 0;
@@ -16,11 +18,12 @@
 		}*/
 		
 		
-		#generatebtn,button{
+		#generatebtn,button,#dwnld{
 			cursor: pointer;
 			background: linear-gradient(to left,red,darkblue );
 			color: #fff;
 			padding: 10px;
+			margin: 10px;
 			font-weight: bolder;
 			
 		}
@@ -54,9 +57,13 @@ input::-webkit-inner-spin-button {
 		align-items: center;
 		width: 300px;
 		}
+		fieldset{
+			background-image: linear-gradient(to right top, blueviolet,yellow);
+			font-weight: bolder;border-radius: 50px;
+		}
 	</style>
-	<link rel="stylesheet" type="text/css" href="../source/nav.css">
-	 <link rel="stylesheet" type="text/css" href="../source/animatedbg.css">
+	<link rel="stylesheet" type="text/css" href="/source/nav.css">
+	 <link rel="stylesheet" type="text/css" href="/source/animatedbg.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -83,20 +90,44 @@ input::-webkit-inner-spin-button {
 				value="Generate QR Code" />
 		<br>
 		<br>
+		
 		<div>
-		<fieldset id="qr-code" style="display:none;" ></fieldset>
-		<button id="dwnld" onclick="alert('sorry :( work not yet completed...')" style="display:none;">Download QR</button>
+		<fieldset id="qr-code"  style="display:none;">SCAN ME</fieldset>
+        <br>
+		<a id="dwnld" style="display:none;">Download QR</a>
 	</div>
-<hr>
+
 <button onclick="history.back()">Back</button>
 </div>
 </center>
 
 <script>
+	
+     
+// download qrCode here...
+function autoClick(){
+        $("#dwnld").click();
+      }
+      $(document).ready(function(){
+        var element = $("#qr-code");
+
+        $("#dwnld").on('click', function(){
+
+          html2canvas(element, {
+            onrendered: function(canvas) {
+              var imageData = canvas.toDataURL("image/jpg");
+              var newData = imageData.replace(/^data:image\/jpg/, "data:application/octet-stream");
+              $("#dwnld").attr("download", "qrcode.jpg").attr("href", newData);
+            }
+          });
+
+        });
+      });
+    
 	let phno=document.getElementById("phno");
 	let message=document.getElementById("message");
 	let qrGenerationForm=document.getElementById("generatebtn");
-
+var a="blueviolet"
 	let qrCode;
 	function generateQrCode(qrContent) {
 	return new QRCode("qr-code", {
@@ -104,8 +135,7 @@ input::-webkit-inner-spin-button {
 		width: 200,
 		height: 200,
 		colorDark: "#000000",
-		colorLight: "#ffffff",
-		
+		colorLight: `${a}`,
 	});
 	}
 	$('#generatebtn').attr('disabled','disabled');
@@ -142,6 +172,7 @@ input::-webkit-inner-spin-button {
 	
 	// Event listener for form submit event
 	qrGenerationForm.addEventListener("click", function (event) {
+		autoClick();
 		document.getElementById('qr-code').style.display="block";
 		document.getElementById('dwnld').style.display="block";
 	 let mess=message.value;
