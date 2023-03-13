@@ -3,17 +3,17 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=970, user-scalable=no">
-
+   
 	<title>qr generator</title>
 	<style>
-		body{
+		/*body{
 		margin: 0;
 		background-image: linear-gradient(to right bottom, #051937, #252b4a, #413e5e, #5c5372, #786987);
 		background-repeat: no-repeat;
   background-attachment: fixed;  
   background-size: cover;
 	
-		}
+		}*/
 		
 		
 		#generatebtn,button{
@@ -45,7 +45,7 @@ input::-webkit-inner-spin-button {
 			text-align: center;
 		}
 		.whatsappcontent {
-			margin: 150px;
+			margin: 60px;
 			background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
 		display: grid;
 		padding:0 40px 50px;
@@ -55,7 +55,8 @@ input::-webkit-inner-spin-button {
 		width: 300px;
 		}
 	</style>
-	<link rel="stylesheet" type="text/css" href="../source/nav.css">
+	<link rel="stylesheet" type="text/css" href="/source/nav.css">
+	 <link rel="stylesheet" type="text/css" href="/source/animatedbg.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -66,7 +67,7 @@ input::-webkit-inner-spin-button {
 	<script src="../source/create-qr-script.js"></script>
 	<!-- nav bar -->
 <div class="headerpage">
-	<a href=".././index.html">HOME</a>
+	<a href="/index.html">HOME</a>
 	<a href="https://www.qr-code-generator.com/#:~:text=What%20is%20a%20QR%20Code%20generator%3F,WiFi%20network%2C%20and%20much%20more." target="_blank" >About</a>
 	<a href="#">Feedback</a>
 </div>
@@ -165,5 +166,12 @@ input::-webkit-inner-spin-button {
 		qrCode.makeCode(qrContent);
 	}
 	});</script>
+	<!-- this html code for animated background -->
+ <div>
+     <div class="wave"></div>
+     <div class="wave"></div>
+     <div class="wave"></div>
+ </div>
+<!-- this html code for animated background -->
 </body>
 </html>
