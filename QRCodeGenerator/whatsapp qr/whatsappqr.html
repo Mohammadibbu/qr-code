@@ -127,7 +127,7 @@ function autoClick(){
         var element = $("#qr-code");
 
         $("#dwnld").on('click', function(){
-
+          navigator.vibrate([20]);
           html2canvas(element, {
             onrendered: function(canvas) {
               var imageData = canvas.toDataURL("image/jpg");
@@ -156,6 +156,7 @@ function autoClick(){
 	$('#generatebtn').attr('disabled','disabled');
 	function invalid(){
       if (phno.value.length === 10) {
+         navigator.vibrate([300]);
       	 document.getElementById("error").innerHTML="<b style='color: green;' class='fa fa-check-circle'> Valid Number</b";
 
       	phno.style.border="2px solid green";
@@ -165,6 +166,7 @@ function autoClick(){
 			
 			$('#generatebtn').removeAttr('disabled');
 		}else if (phno.value==="") {
+         navigator.vibrate([200]);
       	document.getElementById("error").innerHTML="<b style='color: red;' class='fa fa-exclamation-circle'> Required Field</b";
       	phno.style.border="1px solid red";
      
