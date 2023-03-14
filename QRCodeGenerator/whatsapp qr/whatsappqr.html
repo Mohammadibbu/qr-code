@@ -128,6 +128,8 @@ function autoClick(){
 
         $("#dwnld").on('click', function(){
           navigator.vibrate([20]);
+if (confirm("Do you want to download?.....")) {
+          navigator.vibrate([100]);
           html2canvas(element, {
             onrendered: function(canvas) {
               var imageData = canvas.toDataURL("image/jpg");
@@ -135,6 +137,11 @@ function autoClick(){
               $("#dwnld").attr("download", "qrcode.jpg").attr("href", newData);
             }
           });
+          
+          setTimeout(()=>{document.getElementById('dwnld').href ="#";},2000);
+        }else{document.getElementById('dwnld').href ="#";navigator.vibrate([100]);}
+}
+          
 
         });
       });
