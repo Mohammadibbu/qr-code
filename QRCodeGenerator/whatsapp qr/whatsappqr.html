@@ -22,8 +22,8 @@
   border: 16px solid black;
   border-radius: 50%;
   border-top: 16px solid  #0052cc;
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
   -webkit-animation: spin .7s linear infinite; /* Safari */
   animation: spin .8s linear infinite;
 }
@@ -189,17 +189,17 @@ function autoClick(){
            	      
 	// Event listener for creating qr click event
 	qrGenerationForm.addEventListener("click", function (event) {
-     setTimeout(createqr,1700);
+     setTimeout(createqr,1300);
       loader.style.display="block";
-		autoClick();});
+		autoClick();}); // for save qr.jpg 
    function createqr(){
               loader.style.display="none";
 		document.getElementById('qr-code').style.display="block";
 		document.getElementById('dwnld').style.display="block";
 	 let mess=message.value;
-		let crtmess=mess.replaceAll(' ','%20');
+        let crtmess=mess.replaceAll(' ','%20');
 
-     let qrContentInput=`https://wa.me/+91${phno.value}?text=${crtmess}`;
+        let qrContentInput=`https://wa.me/+91${phno.value}?text=${crtmess}`;
 	
 
 	let qrContent = qrContentInput;
