@@ -32,7 +32,7 @@ select:hover{
    
 	</style>
 </head>
-<body onunload="location.reload() ">
+<body>
 	<div class="headerpage">
 	<a href="../index.html">HOME</a>
 	<a href="https://www.qr-code-generator.com/#:~:text=What%20is%20a%20QR%20Code%20generator%3F,WiFi%20network%2C%20and%20much%20more." target="_blank" >About</a>
@@ -56,16 +56,17 @@ select:hover{
 <script type="text/javascript">
 	function qrselect() {
 		// body...
+            location.reload();
 		var x=document.getElementById('qr_selector').value;
-		if (x==="whatsapp") {
+		if (x==="whatsapp") {navigator.vibrate([100,50,200]);
 			window.open("whatsapp qr/whatsappqr.html","_self");
-		}else if (x==="payment") {
+		}else if (x==="payment") {navigator.vibrate([100,50,200]);
 			window.open("payment qr/paymentqr.html","_self");
-		}else if (x==="phonenumber") {
+		}else if (x==="phonenumber") {navigator.vibrate([100,50,200]);
 			window.open("phone no qr/phnoqr.html","_self");
-		}else if (x==="bio") {
+		}else if (x==="bio") {navigator.vibrate([100,50,200]);
 			window.open("bioqr/bioqr.html","_self");
-		}else if (x==="text or url") {
+		}else if (x==="text or url") {navigator.vibrate([100,50,200]);
 			window.open("text  or url qr/txt.html","_self");
 		}else{
 			alert("something went wrong...")
