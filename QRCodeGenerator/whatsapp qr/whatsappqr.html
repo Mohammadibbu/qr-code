@@ -17,6 +17,14 @@
 	
 		}*/
 		*{user-select:none;}
+*/Shake*/
+@keyframes shake {
+  0% { margin-left: 0rem; }
+  25% { margin-left: 0.5rem; }
+  75% { margin-left: -0.5rem; }
+  100% { margin-left: 0rem; }
+  
+}
 		/*loader style*/
 	#loader {
   border: 4px solid white;
@@ -131,21 +139,9 @@ function autoClick(){
               onrendered: function(canvas) {
               var imageData = canvas.toDataURL("image/jpg");
               var newData = imageData.replace(/^data:image\/jpg/, "data:application/octet-stream");
-             // $("#dwnld").attr("download", "qrcode").attr("href", newData);
+             $("#dwnld").attr("download", "qrcode").attr("href", newData);
             }
           });
-          if (confirm("Do you want to download?.....")) {
-          navigator.vibrate([100]);
-          //html2canvas(element, {
-          //    onrendered: function(canvas) {
-          //    var imageData = canvas.toDataURL("image/jpg");
-           //   var newData = imageData.replace(/^data:image\/jpg/, "data:application/octet-stream");
-             $("#dwnld").attr("download", "qrcode").attr("href", newData);
-          //  }
-        //  });
-          
-          setTimeout(()=>{document.getElementById('dwnld').href ="#";},2000);
-         }else{document.getElementById('dwnld').href ="#";navigator.vibrate([100]);}
         });
       });
     
@@ -166,6 +162,8 @@ function autoClick(){
 	$('#generatebtn').attr('disabled','disabled');
 	function invalid(){
       if (phno.value.length === 10) {
+         qrGenerationForm.style. animation = "shake 0.2s ease-in-out 0s 2";
+         phno.style. animation = "shake 0.2s ease-in-out 0s 2";
          navigator.vibrate([300]);
       	 document.getElementById("error").innerHTML="<b style='color: green;' class='fa fa-check-circle'> Valid Number</b";
 
@@ -177,6 +175,7 @@ function autoClick(){
 			$('#generatebtn').removeAttr('disabled');
 		}else if (phno.value==="") {
          navigator.vibrate([200]);
+        phno.style. animation = "shake 0.2s ease-in-out 0s 2";
       	document.getElementById("error").innerHTML="<b style='color: red;' class='fa fa-exclamation-circle'> Required Field please enter valid mobile number</b";
       	phno.style.border="1px solid red";
      
@@ -184,7 +183,7 @@ function autoClick(){
       else{
 
      document.getElementById("error").innerHTML="<b style='color: red;' class='fa fa-exclamation-circle'> invalid Number</b";
-
+     document.getElementById("error").style. animation = "shake 0.2s ease-in-out 0s 2";
 			document.getElementById('qr-code').style.display="none";
 			qrGenerationForm.style.cursor="not-allowed";
 			qrGenerationForm.style.background="red";
