@@ -82,6 +82,11 @@ input::-webkit-inner-spin-button {
    
 			background-image: linear-gradient(to right top, blueviolet,yellow);
 			font-weight: bolder;border-radius: 50px;}*/
+#generatesuccessfully {
+  display:none;
+  background-color: #ddffdd;
+  border-left: 6px solid #04AA6D;
+}
 	</style>
 	<link rel="stylesheet" type="text/css" href="../source/nav.css">
 	 <link rel="stylesheet" type="text/css" href="../source/animatedbg.css">
@@ -113,6 +118,9 @@ input::-webkit-inner-spin-button {
 		<br>
 		
 		<div>
+<div id="generatesuccessfully">
+  <p><strong>QR code</strong> generated successfully...</p>
+</div
 		<div id="qr-code"  style="border-radius:25px;display:none;background-color: white; padding:10px;margin:0" width="200" height="200"></div>
         <div id="loader" style="display:none;"></div>
 </div>
@@ -135,11 +143,13 @@ function autoClick(){
         var element = $("#qr-code");
 
         $("#dwnld").on('click', function(){
+          
           html2canvas(element, {
               onrendered: function(canvas) {
               var imageData = canvas.toDataURL("image/jpg");
               var newData = imageData.replace(/^data:image\/jpg/, "data:application/octet-stream");
              $("#dwnld").attr("download", "qrcode").attr("href", newData);
+             setTimeout(()=>{document.getelementById('generatesuccessfully').style.display="block";},1400);
             }
           });
         });
@@ -203,6 +213,8 @@ function autoClick(){
       loader.style.display="block";
 	;});	
    function createqr(){
+
+         setTimeout(()=>{document.getelementById('generatesuccessfully').style.display="block";},1400);
           autoClick() // for save qr.jpg 
               loader.style.display="none";
 		document.getElementById('qr-code').style.display="block";
