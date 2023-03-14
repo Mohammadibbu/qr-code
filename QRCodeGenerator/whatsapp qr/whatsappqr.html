@@ -127,22 +127,19 @@ function autoClick(){
         var element = $("#qr-code");
 
         $("#dwnld").on('click', function(){
-          navigator.vibrate([20]);
-if (confirm("Do you want to download?.....")) {
+          
+          if (confirm("Do you want to download?.....")) {
           navigator.vibrate([100]);
           html2canvas(element, {
-            onrendered: function(canvas) {
+              onrendered: function(canvas) {
               var imageData = canvas.toDataURL("image/jpg");
               var newData = imageData.replace(/^data:image\/jpg/, "data:application/octet-stream");
-              $("#dwnld").attr("download", "qrcode.jpg").attr("href", newData);
+              $("#dwnld").attr("download", "qrcode").attr("href", newData);
             }
           });
           
           setTimeout(()=>{document.getElementById('dwnld').href ="#";},2000);
-        }else{document.getElementById('dwnld').href ="#";navigator.vibrate([100]);}
-}
-          
-
+         }else{document.getElementById('dwnld').href ="#";navigator.vibrate([100]);}
         });
       });
     
