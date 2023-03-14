@@ -91,9 +91,9 @@ input::-webkit-inner-spin-button {
 		<br>
 		<br>
 		
-		<fielset>
-		<div id="qr-code"  style="display:none;"></div>
-</fieldset>
+		<div>
+		<div id="qr-code"  style="display:none;" width="200" height="200"></div>
+</div>
         <br>
 		<a id="dwnld" style="display:none;">Download QR</a>
 	
@@ -105,7 +105,7 @@ input::-webkit-inner-spin-button {
 <script>
 	
      
-// download qrCode here...
+//Code for download qrCode here...
 function autoClick(){
         $("#dwnld").click();
       }
@@ -128,7 +128,7 @@ function autoClick(){
 	let phno=document.getElementById("phno");
 	let message=document.getElementById("message");
 	let qrGenerationForm=document.getElementById("generatebtn");
-var a="white";
+//var a="white";
 	let qrCode;
 	function generateQrCode(qrContent) {
 	return new QRCode("qr-code", {
@@ -136,7 +136,7 @@ var a="white";
 		width: 200,
 		height: 200,
 		colorDark: "#000000",
-		colorLight: `${a}`,
+		colorLight: "fffff",
 	});
 	}
 	$('#generatebtn').attr('disabled','disabled');
