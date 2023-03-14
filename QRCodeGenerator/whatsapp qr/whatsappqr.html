@@ -186,13 +186,14 @@ function autoClick(){
     }};
 
 	
-           	      
+        let loader= document.getElementById('loader') ; 	      
 	// Event listener for creating qr click event
 	qrGenerationForm.addEventListener("click", function (event) {
      setTimeout(createqr,1300);
       loader.style.display="block";
-		autoClick();}); // for save qr.jpg 
+	;});	
    function createqr(){
+          autoClick() // for save qr.jpg 
               loader.style.display="none";
 		document.getElementById('qr-code').style.display="block";
 		document.getElementById('dwnld').style.display="block";
