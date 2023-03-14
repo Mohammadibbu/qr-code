@@ -106,7 +106,8 @@ input::-webkit-inner-spin-button {
 		<br>
 		
 		<div>
-		<div id="qr-code"  style="display:none;background-color: white; padding:10px" width="200" height="200"></div>
+		<div id="qr-code"  style="display:none;background-color: white; padding:10px;" width="200" height="200"></div>
+        <div id="loader" style="display:none;"></div>
 </div>
         <br>
 		<a id="dwnld" style="display:none;">Download QR</a>
@@ -185,9 +186,14 @@ function autoClick(){
     }};
 
 	
-	// Event listener for form submit event
+           	      
+	// Event listener for creating qr click event
 	qrGenerationForm.addEventListener("click", function (event) {
-		autoClick();
+     setTimeout(createqr,1700);
+      loader.style.display="block";
+		autoClick();});
+   function createqr(){
+              loader.style.display="none";
 		document.getElementById('qr-code').style.display="block";
 		document.getElementById('dwnld').style.display="block";
 	 let mess=message.value;
@@ -199,10 +205,8 @@ function autoClick(){
 	let qrContent = qrContentInput;
 	console.log(qrContent)
 	if (qrCode == null) {
-// 		let a=document.getElementById('qr-code').innerHTML=`<a href='in.jpeg' downlaod>link here</a>`;
-// console.log(a);
 
-		// Generate code initially
+// Generate code initially
 		qrCode = generateQrCode(qrContent);
 	} else {
 		
@@ -210,8 +214,9 @@ function autoClick(){
 		// again using same object
 		
 		qrCode.makeCode(qrContent);
-	}
-	});</script>
+	}}
+	
+</script>
 	<!-- this html code for animated background -->
  <div>
      <div class="wave"></div>
