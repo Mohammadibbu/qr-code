@@ -17,7 +17,20 @@
 	
 		}*/
 		*{user-select:none;}
-		
+		/*loader style*/
+	#loader {
+  border: 16px solid black;
+  border-radius: 50%;
+  border-top: 16px solid  #0052cc;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin .7s linear infinite; /* Safari */
+  animation: spin .8s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 		#generatebtn,button,#dwnld{
                         
 			cursor: pointer;
