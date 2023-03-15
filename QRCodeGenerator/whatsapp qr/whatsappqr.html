@@ -142,7 +142,8 @@ function autoClick(){
         var element = $("#qr-code");
 
         $("#dwnld").on('click', function(){
-          
+           document.getElementById('downloadsucc').style.display="block";
+           setTimeout(()=>{document.getElementById('downloadsucc').style.display="none";},5000);
           html2canvas(element, {
               onrendered: function(canvas) {
               var imageData = canvas.toDataURL("image/jpg");
@@ -151,8 +152,6 @@ function autoClick(){
              
             }
           });
-           document.getElementById('downloadsucc').style.display="block";
-           setTimeout(()=>{document.getElementById('downloadsucc').style.display="none";},5000);
         });
       });
     
