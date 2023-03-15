@@ -117,7 +117,7 @@ input::-webkit-inner-spin-button {
 		<br>
 		
 		<div>
-        <span id="successfully" style="background-color: #ddffdd;border-left: 6px solid #04AA6D;"></span>
+        <span id="successfully" style="background-color: #ddffdd; padding:6px;border-left: 6px solid #04AA6D;">QR code generated successfully...</span>
         <div id="loader" style="display:none;"></div>
         <div id="qr-code"  style="border-radius:25px; display:none;background-color: white; padding:10px;margin:0" width="200" height="200"></div>
         
@@ -147,7 +147,7 @@ function autoClick(){
               var imageData = canvas.toDataURL("image/jpg");
               var newData = imageData.replace(/^data:image\/jpg/, "data:application/octet-stream");
              $("#dwnld").attr("download", "qrcode").attr("href", newData);
-             setTimeout(()=>{document.getelementById('successfully').innerHTML="QR code generated successfully...";},1400);
+             setTimeout(()=>{document.getelementById('successfully').style.display="block";},1400);
             }
           });
         });
@@ -211,7 +211,7 @@ function autoClick(){
       loader.style.display="block";
 	;});	
    function createqr(){
-        setTimeout(()=>{document.getelementById('successfully').innerHTML="QR code generated successfully...";},1400);
+        setTimeout(()=>{document.getelementById('successfully').style.display="block";},1400);
           autoClick() // for save qr.jpg 
               loader.style.display="none";
 		document.getElementById('qr-code').style.display="block";
