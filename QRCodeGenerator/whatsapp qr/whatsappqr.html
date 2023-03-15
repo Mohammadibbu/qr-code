@@ -141,13 +141,13 @@ function autoClick(){
         var element = $("#qr-code");
 
         $("#dwnld").on('click', function(){
-          
+          setTimeout(()=>{document.getElementById('successfully').style.display="block";},1400);
           html2canvas(element, {
               onrendered: function(canvas) {
               var imageData = canvas.toDataURL("image/jpg");
               var newData = imageData.replace(/^data:image\/jpg/, "data:application/octet-stream");
              $("#dwnld").attr("download", "qrcode").attr("href", newData);
-             setTimeout(()=>{document.getelementById('successfully').style.display="block";},1400);
+             
             }
           });
         });
@@ -211,7 +211,7 @@ function autoClick(){
       loader.style.display="block";
 	;});	
    function createqr(){
-        setTimeout(()=>{document.getelementById('successfully').style.display="block";},1400);
+        setTimeout(()=>{document.getElementById('successfully').style.display="block";},1400);
           autoClick() // for save qr.jpg 
               loader.style.display="none";
 		document.getElementById('qr-code').style.display="block";
