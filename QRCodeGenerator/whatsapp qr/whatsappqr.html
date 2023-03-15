@@ -141,7 +141,8 @@ function autoClick(){
         var element = $("#qr-code");
 
         $("#dwnld").on('click', function(){
-          setTimeout(()=>{document.getElementById('successfully').style.display="block";},1400);
+          document.getElementById('successfully').style.display="block";
+          setTimeout(()=>{document.getElementById('successfully').style.display="none";},2000);
           html2canvas(element, {
               onrendered: function(canvas) {
               var imageData = canvas.toDataURL("image/jpg");
@@ -211,7 +212,8 @@ function autoClick(){
       loader.style.display="block";
 	;});	
    function createqr(){
-        setTimeout(()=>{document.getElementById('successfully').style.display="block";},1400);
+        document.getElementById('successfully').style.display="block";
+        setTimeout(()=>{document.getElementById('successfully').style.display="none";},2000);
           autoClick() // for save qr.jpg 
               loader.style.display="none";
 		document.getElementById('qr-code').style.display="block";
