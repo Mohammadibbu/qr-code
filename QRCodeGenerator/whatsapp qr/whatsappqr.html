@@ -117,7 +117,8 @@ input::-webkit-inner-spin-button {
 		<br>
 		
 		<div>
-        <span id="successfully" style="display:none;background-color: #ddffdd; padding:6px;border-left: 6px solid #04AA6D;">QR code generated successfully...</span>
+        <span id="generatesucc" style="display:none;background-color: #ddffdd;margin:4px;padding:6px;border-left: 6px solid #04AA6D;">QR code generated successfully...</span>
+        <span id="downloadsucc" style="display:none;background-color: #ddffdd;margin:4px;padding:6px;border-left: 6px solid #04AA6D;">QR code download successfully...</span>
         <div id="loader" style="display:none;"></div>
         <div id="qr-code"  style="border-radius:25px; display:none;background-color: white; padding:10px;margin:0" width="200" height="200"></div>
         
@@ -141,8 +142,7 @@ function autoClick(){
         var element = $("#qr-code");
 
         $("#dwnld").on('click', function(){
-          document.getElementById('successfully').style.display="block";
-          setTimeout(()=>{document.getElementById('successfully').style.display="none";},2000);
+          
           html2canvas(element, {
               onrendered: function(canvas) {
               var imageData = canvas.toDataURL("image/jpg");
@@ -151,6 +151,9 @@ function autoClick(){
              
             }
           });
+        document.getElementById('downloadsucc').style.display="block";
+        setTimeout(()=>{document.getElementById('downloadsucc').style.display="none";},5000);
+        
         });
       });
     
@@ -212,8 +215,8 @@ function autoClick(){
       loader.style.display="block";
 	;});	
    function createqr(){
-        document.getElementById('successfully').style.display="block";
-        setTimeout(()=>{document.getElementById('successfully').style.display="none";},2000);
+        document.getElementById('generatesucc').style.display="block";
+        setTimeout(()=>{document.getElementById('generatesucc').style.display="none";},3000);
           autoClick() // for save qr.jpg 
               loader.style.display="none";
 		document.getElementById('qr-code').style.display="block";
